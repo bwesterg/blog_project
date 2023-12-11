@@ -23,7 +23,7 @@ export default function RegisterPage() {
             <h1>Register</h1>
             <input 
                 type="text" 
-                placeholder="username" 
+                placeholder="username"
                 value={username} 
                 onChange={ev => setUsername(ev.target.value)}
             />

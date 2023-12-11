@@ -25,6 +25,11 @@ app.post('/register', async (req, res) => {
     }
 });
 
+app.get('/test', (req, res) => {
+    res.json('test ok dawg');
+});
+
 app.listen(4000);
 //mongodb+srv://blog:<Mhmr3NNYIOmqSJAU>@cluster0.tb81blt.mongodb.net/?retryWrites=true&w=majority
 //Mhmr3NNYIOmqSJAU
+

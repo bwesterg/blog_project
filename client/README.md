@@ -1,3 +1,13 @@
+(draft)
+For this project:
+1. Node v 18+
+2. npm create react app
+3. (in api) npm install express
+4. (in api) npm install nodemon
+5. (in api) node index.js
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

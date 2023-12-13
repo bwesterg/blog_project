@@ -4,7 +4,7 @@ For this project:
 2. npm create react app
 3. (in api) npm install express
 4. (in api) npm install nodemon
-5. (in api) node index.js
+5. (in api) nodemon index.js (may need to reinstall nodemon w/ npm install nodemon)
 
 
 

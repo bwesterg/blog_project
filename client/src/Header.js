@@ -4,13 +4,11 @@ import { UserContext } from "./UserContext";
 
 export default function Header() {
     const {setUserInfo, userInfo} = useContext(UserContext);
-    // const [username, setUsername] = useState(null);
     useEffect(() => {
         fetch('http://localhost:4000/profile', {
             credentials: 'include',
         }).then(response => {
             response.json().then(userInfo => {
-                // setUsername(userInfo.username);
                 setUserInfo(userInfo);
             });
         });
@@ -28,7 +26,7 @@ export default function Header() {
 
     return (
         <header>
-            <Link href="" className="logo">MyBlog</Link>
+            <Link to="/" className="logo">MyBlog</Link>
             <nav>   
                 {username && (
                     <>
@@ -44,5 +42,5 @@ export default function Header() {
                 )}
             </nav>
         </header>
-    )
+    );
 }

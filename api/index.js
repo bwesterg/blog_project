@@ -9,7 +9,7 @@ const jwt = require('jsonwebtoken');
 const salt = bcrypt.genSaltSync(10);
 const secret = 'laksdjfka343dskl3jl';
 
-app.use(cors());
+app.use(cors({credentials:true,origin:'http://localhost:3000'}));
 app.use(express.json());
 
 mongoose.connect('mongodb+srv://blog:Mhmr3NNYIOmqSJAU@cluster0.tb81blt.mongodb.net/?retryWrites=true&w=majority');

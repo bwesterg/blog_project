@@ -5,6 +5,7 @@ For this project:
 3. (in api) npm install express
 4. (in api) npm install nodemon
 5. (in api) nodemon index.js (may need to reinstall nodemon w/ npm install nodemon)
+6. (in api) npm install cookie-parser
 
 
 

@@ -6,6 +6,7 @@ For this project:
 4. (in api) npm install nodemon
 5. (in api) nodemon index.js (may need to reinstall nodemon w/ npm install nodemon)
 6. (in api) npm install cookie-parser
+7. (in client) npm install react-quill
 
 
 

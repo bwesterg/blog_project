@@ -2,12 +2,16 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const User = require('./models/User');
+const Post = require('./models/Post');
+
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 const multer = require('multer');
 const uploadMiddleware = multer({ dest: 'uploads/' });
+const fs = require('fs');
+   //fs is filesystem library
 
 const salt = bcrypt.genSaltSync(10);
 const secret = 'laksdjfka343dskl3jl';
@@ -63,11 +67,23 @@ app.get('/profile', (req, res) => {
 
 app.post("/logout", (req, res) => {
     res.cookie('token', '').json('ok');
-})
+});
 
+//blog post form
 app.post('/post', uploadMiddleware.single('file'), (req, res) => {
-    res.json({files:req.file});
-})
+    const {originalname,path} = req.file;
+    const parts = originalname.split('.');
+    const ext = parts[parts.length - 1];
+    const newPath = path+'.'+ext;
+    fs.renameSync(path, newPath);
+
+    const {title, summary, content} = req.body;
+    // Post.create({
+
+    // })
+
+    res.json({title, summary, content});
+});
 
 app.listen(4000);
 //mongodb+srv://blog:<Mhmr3NNYIOmqSJAU>@cluster0.tb81blt.mongodb.net/?retryWrites=true&w=majority

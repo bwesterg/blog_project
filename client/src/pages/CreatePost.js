@@ -1,12 +1,15 @@
 import { useState } from "react";
 import ReactQuill from "react-quill";
 import 'react-quill/dist/quill.snow.css';
+import { Navigate } from "react-router-dom";
+
 
 export default function CreatePost(){
     const [title,setTitle] = useState('');
     const [summary,setSummary] = useState('');
     const [content,setContent] = useState('');
-    const [files,setFiles] = useState('')
+    const [files,setFiles] = useState('');
+    const [redirect, setRedirect] = useState(false);
 
     async function createNewPost(ev){
         const data = new FormData();
@@ -16,11 +19,15 @@ export default function CreatePost(){
         data.set('file', files[0]);
         ev.preventDefault();
         // console.log(files)
-        const response = await  fetch('http://localhost:4000/post', {
+        const response = await fetch('http://localhost:4000/post', {
             method: 'POST',
             body: data,
-        });
-        console.log(await response.json());
+            credentials: 'include',
+        }); 
+        // console.log(await response.json());
+        if (response.ok) {
+            setRedirect(true);
+        }
 
     }
 
@@ -40,6 +47,9 @@ export default function CreatePost(){
         'list', 'bullet', 'indent', 'link', 'image'
     ];
 
+    if (redirect){
+        return <Navigate to={'/'} />
+    }
     return (
         <form onSubmit={createNewPost} >
             <input 

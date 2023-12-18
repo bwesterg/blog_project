@@ -4,7 +4,7 @@ export default function Post({title, summary, cover, content, createdAt, author}
     return (
         <div className="post">
             <div className="image">
-                <img src="https://www.traminerhof.it/wp-content/uploads/2020/04/stilfser-joch-768x512.jpg" alt="" />
+                <img src={'http://localhost:4000/' + cover} alt="" />
             </div>
             <div className="texts">
                 <h2>{title}</h2>

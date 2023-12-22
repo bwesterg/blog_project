@@ -3,7 +3,6 @@ const app = express();
 const cors = require('cors');
 const User = require('./models/User');
 const Post = require('./models/Post');
-
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
@@ -11,7 +10,7 @@ const cookieParser = require('cookie-parser');
 const multer = require('multer');
 const uploadMiddleware = multer({ dest: 'uploads/' });
 const fs = require('fs');
-   //fs is filesystem library
+//fs is filesystem library
 
 const salt = bcrypt.genSaltSync(10);
 const secret = 'laksdjfka343dskl3jl';
@@ -36,7 +35,6 @@ app.post('/register', async (req, res) => {
         res.status(400).json(e);
     }
 });
-
 
 app.post('/login', async (req,res) => {
     const {username,password} = req.body;
@@ -112,5 +110,5 @@ app.get('/post/:id', async(req, res) => {
 
 app.listen(4000);
 //mongodb+srv://blog:<Mhmr3NNYIOmqSJAU>@cluster0.tb81blt.mongodb.net/?retryWrites=true&w=majority
-//Mhmr3NNYIOmqSJAU
+
 
